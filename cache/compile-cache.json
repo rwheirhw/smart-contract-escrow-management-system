@@ -1,0 +1,16 @@
+{
+  "C:\\Users\\chara\\escrow system\\contracts\\FreelanceEscrow.sol": {
+    "jobHash": "solc-0_8_24-fd2752e2207599f05113e492faaaf052b9304b7a",
+    "isolated": false,
+    "compilerType": "solc",
+    "artifactPaths": [
+      "C:\\Users\\chara\\escrow system\\artifacts\\contracts\\FreelanceEscrow.sol\\FreelanceEscrow.json"
+    ],
+    "buildInfoPath": "C:\\Users\\chara\\escrow system\\artifacts\\build-info\\solc-0_8_24-fd2752e2207599f05113e492faaaf052b9304b7a.json",
+    "buildInfoOutputPath": "C:\\Users\\chara\\escrow system\\artifacts\\build-info\\solc-0_8_24-fd2752e2207599f05113e492faaaf052b9304b7a.output.json",
+    "typeFilePath": "C:\\Users\\chara\\escrow system\\artifacts\\contracts\\FreelanceEscrow.sol\\artifacts.d.ts",
+    "wasm": false,
+    "artifactsDirectory": "C:\\Users\\chara\\escrow system\\artifacts",
+    "emitsTypeDeclarations": true
+  }
+}

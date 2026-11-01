@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A transparent local blockchain workspace for freelance escrow payments." />
+    <title>Freelance Escrow | Overview</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Freelance Escrow home">
+          <span class="brand-mark">FE</span>
+          <span><strong>Freelance</strong><small>Escrow</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="#overview"><span class="nav-icon">⌂</span>Overview</a>
+          <a class="nav-link" href="#contracts"><span class="nav-icon">◈</span>My contracts</a>
+          <a class="nav-link" href="#activity"><span class="nav-icon">↗</span>Activity</a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="network-card"><span class="live-dot"></span><span><strong>Local network</strong><small>Hardhat · 31337</small></span></div>
+          <p>Educational demo only.<br />Never use real funds.</p>
+        </div>
+      </aside>
+
+      <div class="page">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">FE</span><strong>Freelance Escrow</strong></div>
+          <div class="topbar-actions">
+            <span class="network-pill"><span class="live-dot"></span><span id="network">Disconnected</span></span>
+            <button id="connect" class="wallet-button">Connect wallet</button>
+            <button id="account-menu" class="account-chip" hidden aria-label="Connected wallet"><span class="account-avatar">0x</span><span id="account">Wallet</span><span class="chevron">⌄</span></button>
+          </div>
+        </header>
+
+        <main id="overview">
+          <div id="notice" class="notice" hidden role="status" aria-live="polite"></div>
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow">OVERVIEW</p>
+              <h1>Good to see you<span class="accent">.</span></h1>
+              <p class="subtitle">Keep every freelance payment clear, protected, and on-chain.</p>
+            </div>
+            <a class="text-link" href="#how-it-works">How escrow works <span>↗</span></a>
+          </section>
+
+          <section class="metrics" aria-label="Escrow summary">
+            <article class="metric-card featured">
+              <div class="metric-icon">◇</div><span class="metric-label">Total escrowed</span>
+              <strong id="metric-total">— ETH</strong><small>Across all contracts</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon mint">◷</div><span class="metric-label">Awaiting action</span>
+              <strong id="metric-pending">—</strong><small>Funded or submitted</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon amber">✓</div><span class="metric-label">Completed</span>
+              <strong id="metric-completed">—</strong><small>Released or refunded</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon blue">⌁</div><span class="metric-label">Your role</span>
+              <strong id="metric-role">—</strong><small id="metric-role-detail">Connect to personalize</small>
+            </article>
+          </section>
+
+          <section class="workspace-grid">
+            <article class="panel create-panel" id="create">
+              <div class="panel-heading"><div><p class="eyebrow">NEW CONTRACT</p><h2>Fund a freelance job</h2></div><span class="step-badge">01 / 01</span></div>
+              <p class="muted">Set the terms once. The contract enforces them for everyone.</p>
+              <form id="create-form">
+                <label>Freelancer wallet address<input id="freelancer" required placeholder="0x..." autocomplete="off" /></label>
+                <label>What needs to be delivered?<textarea id="description" required maxlength="500" placeholder="e.g. Build and deploy a responsive portfolio site"></textarea></label>
+                <div class="form-row">
+                  <label>Payment<input id="amount" type="number" min="0.000001" step="any" required placeholder="1.00" /><span class="input-suffix">ETH</span></label>
+                  <label>Due date<input id="deadline" type="datetime-local" required /></label>
+                </div>
+                <div class="form-note"><span>◉</span> Funds are held by the smart contract until approval.</div>
+                <button type="submit" class="primary-button">Create & fund escrow <span>→</span></button>
+              </form>
+            </article>
+
+            <article class="panel how-panel" id="how-it-works">
+              <div class="panel-heading"><div><p class="eyebrow">THE FLOW</p><h2>Simple by design</h2></div><span class="lock">⌑</span></div>
+              <div class="timeline">
+                <div class="timeline-item"><span class="timeline-number">1</span><div><strong>Client funds</strong><p>ETH is locked in the escrow contract.</p></div></div>
+                <div class="timeline-item"><span class="timeline-number">2</span><div><strong>Freelancer submits</strong><p>Work is marked submitted before the deadline.</p></div></div>
+                <div class="timeline-item"><span class="timeline-number">3</span><div><strong>Client approves</strong><p>Payment is released directly to the freelancer.</p></div></div>
+              </div>
+              <div class="privacy-note"><strong>On-chain transparency</strong><p>Wallet addresses, terms, and status are public. Keep private documents off-chain.</p></div>
+            </article>
+          </section>
+
+          <section id="contracts" class="contracts-section">
+            <div class="section-heading"><div><p class="eyebrow">ON-CHAIN RECORDS</p><h2>Your contracts</h2></div><div class="section-tools"><div class="filter-tabs" role="tablist"><button class="filter-tab active" data-filter="all">All</button><button class="filter-tab" data-filter="active">Active</button><button class="filter-tab" data-filter="completed">Completed</button></div><button id="refresh" class="icon-button" title="Refresh contracts" aria-label="Refresh contracts">↻</button></div></div>
+            <div id="escrows" class="escrow-grid"><div class="empty-state"><span class="empty-icon">◈</span><h3>Connect your wallet to begin</h3><p>Contracts from the local blockchain will appear here.</p><button class="secondary-button" id="empty-connect">Connect wallet</button></div></div>
+          </section>
+          <section id="activity" class="activity-strip"><span class="activity-icon">↗</span><div><strong>Every action is verifiable</strong><p>Transactions are confirmed by the Hardhat local network and can be inspected in your wallet.</p></div><span class="activity-chain">CHAIN ID 31337</span></section>
+        </main>
+        <footer><span>Freelance Escrow · Local blockchain demonstration</span><span>Built for learning smart-contract workflows</span></footer>
+      </div>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

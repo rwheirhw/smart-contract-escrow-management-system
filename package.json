@@ -1,0 +1,26 @@
+{
+  "name": "freelance-escrow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "hardhat build",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
+    "demo:local": "hardhat run scripts/demo.ts --network localhost",
+    "frontend": "vite frontend --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "hardhat": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "viem": "^2.21.0"
+  }
+}
